@@ -2,13 +2,12 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 
 	// TODO Untested
 	public ReturnObject head() {
-		ReturnObjectImpl output = new ReturnObjectImpl();
 		if (isEmpty()) {
+			ReturnObjectImpl output = new ReturnObjectImpl();
 			output.errorMessage = ErrorMessage.EMPTY_STRUCTURE;
 			return output;
 		} else {
-			output.errorMessage = (ErrorMessage) array[0].errorMessage;
-			return array[0];
+			return (ReturnObjectImpl) array[0];
 		}
 	}
 

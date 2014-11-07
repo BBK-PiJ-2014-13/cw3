@@ -27,7 +27,7 @@ public interface FunctionalList extends List {
     /**
      * Returns a list with the elements in this list except the
      * head. The elements must be in the same order. The original list
-     * must not change or be affected by changes in the new list. 
+     * must not change or be affected by changes in the new list. // TODO How do I do that
      * 
      * If the list is empty, another empty list is returned. 
      */

@@ -1,4 +1,5 @@
 public class LinkedList implements List {
+	public static LinkedList linkedListStart = new LinkedList();
 	public int index;
 	public LinkedList nextElement;
 
@@ -22,7 +23,7 @@ public class LinkedList implements List {
 	// TODO Untested
 	public ReturnObject get(int i) {
 		if (nextElement.index == i) {
-			return (ReturnObject) this;
+			return (ReturnObject) this; // TODO Why can't cast to ReturnObjectImpl?
 		} else {
 			return nextElement.get(i);
 		}

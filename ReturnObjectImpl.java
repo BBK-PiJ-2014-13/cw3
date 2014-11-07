@@ -23,11 +23,10 @@ public class ReturnObjectImpl implements ReturnObject{
 	// TODO Untested
 	public Object getReturnValue() {
 		if (hasError()) {
-			
+			return null;
 		} else {
-			return this;
+			return this; // TODO I don't know what it is supposed to return
 		}
-		return null;
 	}
 
 }

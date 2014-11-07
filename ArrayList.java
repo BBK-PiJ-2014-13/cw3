@@ -1,6 +1,6 @@
 
 public class ArrayList implements List{
-	ReturnObjectImpl[] array = new ReturnObjectImpl[10];
+	Object[] array = new Object[10];
 
 	// TODO Untested
 	public boolean isEmpty() {
@@ -25,16 +25,17 @@ public class ArrayList implements List{
 
 	// TODO Untested
 	public ReturnObject get(int i) {
-		return (ReturnObject) array[i];
+		return (ReturnObjectImpl) array[i];
 		// TODO Add code to handle errors
 	}
 
 	// TODO Untested
 	public ReturnObject remove(int i) {
+		ReturnObjectImpl output = (ReturnObjectImpl) array[i];
 		for (int j = i; j < array.length - i; j++) {
 			array[j] = array[j+1];
 		}
-		return (ReturnObject) this;
+		return output;
 		// TODO Add code to handle errors
 	}
 
@@ -45,7 +46,7 @@ public class ArrayList implements List{
 			array[j] = array[j-1];
 		}
 		array[i] = (ReturnObjectImpl) o;
-		return null; // TODO add something to return
+		return null; // TODO return null if operation is successfull, error otherwise
 		// TODO Add code to handle errors
 	}
 
@@ -54,7 +55,7 @@ public class ArrayList implements List{
 		// TODO add code to increase the size of array
 		array[size()] = (ReturnObjectImpl) o;
 		// TODO Add code to handle errors
-		return null; // TODO add something to return
+		return null; // TODO return null if operation is successfull, error otherwise
 	}
 
 }
