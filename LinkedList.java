@@ -2,6 +2,9 @@ public class LinkedList implements List {
 	public static LinkedList linkedListStart = new LinkedList();
 	public int index;
 	public LinkedList nextElement;
+	
+	public LinkedList() {
+	}
 
 	// TODO Untested
 	public boolean isEmpty() {
@@ -72,6 +75,7 @@ public class LinkedList implements List {
 	public ReturnObject add(Object o) {
 		if (nextElement == null) {
 			nextElement = (LinkedList) o;
+			nextElement.index = index + 1;
 		} else {
 			(nextElement).add(o);
 		}
