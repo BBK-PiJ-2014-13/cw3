@@ -1,40 +1,40 @@
 public class StackImpl extends AbstractStack implements Stack{
-	public static LinkedList listStart;
+	private LinkedList linkedList;
 	
 	// TODO Untested
 	public StackImpl(List list) {
 		super(list);
-		listStart = new StackImpl(listStart);
+		linkedList = (LinkedList) internalList;
 	}
 
 	// TODO Untested
 	public boolean isEmpty() {
-		
-		return false;
+		return linkedList.isEmpty();
 	}
 
 	// TODO Untested
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return linkedList.size();
 	}
 
 	// TODO Untested
-	public void push(Object item) {
-		// TODO Auto-generated method stub
+	public void push(Object o) {
+		linkedList.add(o);
+		// TODO add code to handle arrors
 		
 	}
 
 	// TODO Untested
 	public ReturnObject top() {
-		// TODO Auto-generated method stub
+		linkedList.last();
+		// TODO add code to handle arrors
 		return null;
 	}
 
 	// TODO Untested
 	public ReturnObject pop() {
-		// TODO Auto-generated method stub
-		return null;
+		return linkedList.removeLast();
+		// TODO add code to handle arrors
 	}
 
 }

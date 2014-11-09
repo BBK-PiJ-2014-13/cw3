@@ -2,7 +2,7 @@ public class LinkedList implements List {
 	public static LinkedList linkedListStart = new LinkedList();
 	public int index;
 	public LinkedList nextElement;
-	
+
 	public LinkedList() {
 	}
 
@@ -81,5 +81,28 @@ public class LinkedList implements List {
 		}
 		// TODO Add code to handle an error
 		return null; // TODO add return statement
+	}
+
+	// TODO Untested
+	public ReturnObject last() {
+		if (nextElement == null) {
+			return (ReturnObject) this;
+		} else {
+			return nextElement.last();
+		}
+		// TODO Add code to handle an error
+	}
+
+	// TODO Untested
+	public ReturnObject removeLast() {
+		ReturnObject output;
+		if (nextElement.nextElement == null) {
+			output = (ReturnObject) nextElement;
+			nextElement = null;
+			return output;
+		} else {
+			return nextElement.removeLast();
+		}
+		// TODO Add code to handle an error
 	}
 }
