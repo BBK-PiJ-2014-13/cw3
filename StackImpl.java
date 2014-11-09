@@ -1,5 +1,5 @@
 public class StackImpl extends AbstractStack implements Stack{
-	private LinkedList linkedList;
+	public LinkedList linkedList;
 	
 	// TODO Untested
 	public StackImpl(List list) {
