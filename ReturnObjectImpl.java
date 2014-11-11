@@ -3,9 +3,13 @@ public class ReturnObjectImpl implements ReturnObject{
 	Object value;
 	
 	
-	// TODO Untested
 	public boolean hasError() {
+		if (value instanceof ErrorMessage == false) {
+			return false;
+		}
+		
 		ErrorMessage probableError = (ErrorMessage) value;
+		
 		switch (probableError) {
 		case EMPTY_STRUCTURE:
 		case INDEX_OUT_OF_BOUNDS:
@@ -16,22 +20,19 @@ public class ReturnObjectImpl implements ReturnObject{
 		}
 	}
 
-	// TODO Untested
 	public ErrorMessage getError() {
-//		if (hasError()) {
-//			return errorMessage;
-//		} else {
-//			return ErrorMessage.NO_ERROR;
-//		}
-		return null;
+		if (hasError()) {
+			return (ErrorMessage) value;
+		} else {
+			return ErrorMessage.NO_ERROR;
+		}
 	}
 
-	// TODO Untested
 	public Object getReturnValue() {
 		if (hasError()) {
 			return null;
 		} else {
-			return this; // TODO I don't know what it is supposed to return
+			return value;
 		}
 	}
 

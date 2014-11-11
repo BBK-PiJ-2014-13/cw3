@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class ReturnObjectTest {
 	
-	@Test
+
 	public void testsHasError() {
 		ReturnObjectImpl ReturnObjectImpl = new ReturnObjectImpl();
 		ReturnObjectImpl.value = ErrorMessage.INDEX_OUT_OF_BOUNDS;
@@ -15,25 +15,24 @@ public class ReturnObjectTest {
 	}
 	
 	public void testsGetError() {
-		ReturnObjectImpl ReturnObjectImpl = new ReturnObjectImpl();
-		ReturnObjectImpl.value = ErrorMessage.EMPTY_STRUCTURE;
-		ErrorMessage errorExpected = ErrorMessage.EMPTY_STRUCTURE;
-		assertEquals(errorExpected, ReturnObjectImpl.getError());
+		ReturnObjectImpl returnObjectImpl = new ReturnObjectImpl();
+		returnObjectImpl.value = ErrorMessage.EMPTY_STRUCTURE;
+		ErrorMessage errorExpected = (ErrorMessage) returnObjectImpl.value;
+		assertEquals(errorExpected, returnObjectImpl.getError());
 		
-		ReturnObjectImpl.value = null;
+		returnObjectImpl.value = null;
 		errorExpected = ErrorMessage.NO_ERROR;
-		assertEquals(ReturnObjectImpl.getError(), errorExpected);
+		assertEquals(returnObjectImpl.getError(), errorExpected);
 	}
 	
 	public void testsGetReturnValue() {
-		ReturnObjectImpl ReturnObjectImpl = new ReturnObjectImpl();
-		ReturnObjectImpl.value = new Random();
-		Object returnValueExpected = ReturnObjectImpl.value;
-		assertEquals(ReturnObjectImpl.getReturnValue(), returnValueExpected);
+		ReturnObjectImpl returnObjectImpl = new ReturnObjectImpl();
+		returnObjectImpl.value = new Random();
+		Object returnValueExpected = returnObjectImpl.value;
+		assertEquals(returnObjectImpl.getReturnValue(), returnValueExpected);
 		
-		ReturnObjectImpl.value = ErrorMessage.INDEX_OUT_OF_BOUNDS;
-		returnValueExpected = ReturnObjectImpl.value;
-		assertEquals(ReturnObjectImpl.getReturnValue(), returnValueExpected);
+		returnObjectImpl.value = ErrorMessage.INDEX_OUT_OF_BOUNDS;
+		assertEquals(null, returnObjectImpl.getReturnValue());
 	}
 
 }
