@@ -55,8 +55,8 @@ public interface List {
 	 * the list, then an appropriate error must be returned.
 	 * 
 	 * @param index the position in the list of the item to be retrieved
-	 * @return the element or an appropriate error message,
-	 *         encapsulated in a ReturnObject // TODO What the hell is this
+	 * @return the element or an appropriate error message, 
+	 *         encapsulated in a ReturnObject
 	 */
 	public ReturnObject remove(int index);
 

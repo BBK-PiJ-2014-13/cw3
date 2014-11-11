@@ -1,23 +1,29 @@
 
 public class ReturnObjectImpl implements ReturnObject{
-	ErrorMessage errorMessage;
+	Object value;
 	
 	
 	// TODO Untested
 	public boolean hasError() {
-		if (errorMessage == null) {
+		ErrorMessage probableError = (ErrorMessage) value;
+		switch (probableError) {
+		case EMPTY_STRUCTURE:
+		case INDEX_OUT_OF_BOUNDS:
+		case INVALID_ARGUMENT:
+			return true;
+		default:
 			return false;
 		}
-		return true;
 	}
 
 	// TODO Untested
 	public ErrorMessage getError() {
-		if (hasError()) {
-			return errorMessage;
-		} else {
-			return ErrorMessage.NO_ERROR;
-		}
+//		if (hasError()) {
+//			return errorMessage;
+//		} else {
+//			return ErrorMessage.NO_ERROR;
+//		}
+		return null;
 	}
 
 	// TODO Untested
