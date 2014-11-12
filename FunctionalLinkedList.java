@@ -1,5 +1,4 @@
-
-public class FunctionalLinkedList extends LinkedList implements FunctionalList{
+public class FunctionalLinkedList extends LinkedList implements FunctionalList {
 
 	// Tested
 	public ReturnObject head() {
@@ -12,25 +11,19 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList{
 		return output;
 	}
 
-	
 	// Tested
 	public FunctionalList rest() {
 		FunctionalLinkedList output = new FunctionalLinkedList();
 		if (size() == 0) {
 			return null;
 		}
-		
-		LinkedList currentElement = nextElement;
-		for (int i = 0; i < size(); i ++) {
+
+		for (int i = 0; i < size(); i++) {
 			output.add(get(i).getReturnValue());
 		}
-		System.out.println("Before remove: " + output.get(0).getReturnValue());
 		output.remove(0);
-		System.out.println("After remove: " + output.get(0).getReturnValue());
 		return output;
-		
-	}
-	
 
+	}
 
 }

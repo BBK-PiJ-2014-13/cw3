@@ -1,5 +1,5 @@
 public class ArrayList implements List {
-	Object[] array = new Object[10];
+	public Object[] array = new Object[10];
 
 	// Tested
 	public boolean isEmpty() {
@@ -15,19 +15,24 @@ public class ArrayList implements List {
 				return i;
 			}
 		}
-		return 0;
+		return array.length;
 	}
 
 	// Tested
 	public ReturnObject get(int i) {
-		ReturnObjectImpl returnValue = new ReturnObjectImpl();
+		ReturnObjectImpl output = new ReturnObjectImpl();
+		if (size() == 0) {
+			output.value = ErrorMessage.EMPTY_STRUCTURE;
+			return output;
+		}
+		
 		if (i < 0 || i >= size()) {
-			returnValue.value = ErrorMessage.INDEX_OUT_OF_BOUNDS;
-			return returnValue;
+			output.value = ErrorMessage.INDEX_OUT_OF_BOUNDS;
+			return output;
 		}
 
-		returnValue.value = array[i];
-		return returnValue;
+		output.value = array[i];
+		return output;
 	}
 
 	// Tested
@@ -46,7 +51,9 @@ public class ArrayList implements List {
 
 	// Tested
 	public ReturnObject add(int index, Object o) {
-		// TODO add code to increase the size of array
+		if (array.length == size()) {
+			doubleArray();
+		}
 		ReturnObjectImpl returnValue = new ReturnObjectImpl();
 		if (index < 0 || index >= size()) {
 			returnValue.value = ErrorMessage.INDEX_OUT_OF_BOUNDS;
@@ -62,7 +69,10 @@ public class ArrayList implements List {
 
 	// Tested
 	public ReturnObject add(Object o) {
-		// TODO add code to increase the size of array
+		if (array.length == size()) {
+			doubleArray();
+		}
+		
 		if (o == null) {
 			ReturnObjectImpl returnObject = new ReturnObjectImpl();
 			returnObject.value = ErrorMessage.INVALID_ARGUMENT;
@@ -72,6 +82,15 @@ public class ArrayList implements List {
 		array[size()] = o;
 
 		return null;
+	}
+	
+	// Untested
+	private void doubleArray() {
+		Object[] tempArray = new Object[array.length * 2];
+		for (int i = 0; i < size(); i++) {
+			tempArray[i] = array[i];
+		}
+		array = tempArray;
 	}
 
 }

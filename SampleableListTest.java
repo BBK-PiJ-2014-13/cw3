@@ -4,7 +4,6 @@ import org.junit.Test;
 public class SampleableListTest extends BasicTest{
 	SampleableListImpl list = new SampleableListImpl();
 	
-	@Test
 	public void testsSample() {
 		list.add("Object 1");
 		list.add("Object 2");

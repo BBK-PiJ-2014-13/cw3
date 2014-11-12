@@ -28,37 +28,37 @@ public class LinkedListTest extends BasicTest {
 	}
 
 	public void testsGet() {
-		valueExpected = new Object();
-		linkedList.add(valueExpected);
-		valueActual = linkedList.get(0).getReturnValue();
+		linkedList.add(new Object());
+		linkedList.add(valueExpected = new Object());
+		
+		valueActual = linkedList.get(1).getReturnValue();
 		test();
 
 		valueExpected = ErrorMessage.INDEX_OUT_OF_BOUNDS;
 		valueActual = linkedList.get(-10).getError();
 		test();
-		
+
 		valueActual = linkedList.get(2).getError();
 		test();
-		
+
 		valueActual = linkedList.get(100).getError();
 		test();
 	}
 
 	public void testsRemove() {
-		linkedList.add(new Object());
-		valueExpected = new Object();
-		linkedList.add(valueExpected);
-		linkedList.add(new Object());
-		valueActual = linkedList.remove(1).getReturnValue();
+		linkedList.add("Object 1");
+		linkedList.add(valueExpected = "Object 2");
+		linkedList.add("Object 3");
+		valueActual = linkedList.remove(0).getReturnValue();
 		test();
-		
+
 		valueExpected = ErrorMessage.INDEX_OUT_OF_BOUNDS;
 		valueActual = linkedList.remove(-10).getError();
 		test();
-		
+
 		valueActual = linkedList.remove(2).getError();
 		test();
-		
+
 		valueActual = linkedList.remove(100).getError();
 		test();
 	}
@@ -68,22 +68,23 @@ public class LinkedListTest extends BasicTest {
 		valueActual = linkedList.add(null).getError();
 		test();
 
-		valueExpected = null;
-		valueActual = linkedList.add(new Object());
+		linkedList.add(new Object());
+		linkedList.add(valueExpected = new Object());
+		valueActual = linkedList.get(1).getReturnValue();
+		System.out.println(linkedList.nextElement.size());
 		test();
 	}
 
-	@Test
 	public void testsAddWithIndex() {
 		linkedList.add(new Object());
 		linkedList.add(new Object());
 		linkedList.add(new Object());
 		valueExpected = new Object();
-		
+
 		linkedList.add(1, valueExpected);
 		valueActual = linkedList.get(1).getReturnValue();
 		test();
-		
+
 		System.out.print(linkedList.nextElement.index);
 		System.out.print(linkedList.nextElement.nextElement.index);
 		System.out.println(linkedList.nextElement.nextElement.nextElement.index);
@@ -91,17 +92,15 @@ public class LinkedListTest extends BasicTest {
 		System.out.print(linkedList.nextElement.index);
 		System.out.print(linkedList.nextElement.nextElement.index);
 		System.out.print(linkedList.nextElement.nextElement.nextElement.index);
-	
-		
+
 	}
-	
+
 	public void testsMoveIndexes() {
 		linkedList.add(new Object());
 		linkedList.add(new Object());
 		linkedList.add(new Object());
 		linkedList.add(new Object());
-		
-		
+
 		System.out.print(linkedList.nextElement.index);
 		System.out.print(linkedList.nextElement.nextElement.index);
 		System.out.println(linkedList.nextElement.nextElement.nextElement.index);
@@ -109,17 +108,17 @@ public class LinkedListTest extends BasicTest {
 		System.out.print(linkedList.nextElement.index);
 		System.out.print(linkedList.nextElement.nextElement.index);
 		System.out.print(linkedList.nextElement.nextElement.nextElement.index);
-	
+
 		valueExpected = ErrorMessage.INDEX_OUT_OF_BOUNDS;
 		valueActual = linkedList.remove(-10).getError();
 		test();
-		
+
 		valueActual = linkedList.remove(2).getError();
 		test();
-		
+
 		valueActual = linkedList.remove(100).getError();
 		test();
-		
+
 		valueExpected = ErrorMessage.INVALID_ARGUMENT;
 		valueActual = linkedList.add(null).getError();
 		test();
